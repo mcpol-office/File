@@ -1,0 +1,10 @@
+name: qq_group_crawler
+author: Mcpol
+description: QQ群成员信息自动爬取插件，支持解析特定格式的群名称并保存到本地文件
+version: 1.0.0
+repository: https://github.com/your-repo
+tags:
+  - qq
+  - crawler
+  - group
+  - member 

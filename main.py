@@ -12,7 +12,8 @@ class QQGroupCrawlerPlugin(Star):
         super().__init__(context)
         self.target_group_id = "335881164"
         self.report_qq_id = "3097818372"
-        self.save_dir = "/opt/风纪小组名单/"
+        # 保存到本地服务器
+        self.save_dir = "./风纪小组名单/"
         self.save_file = os.path.join(self.save_dir, "txt.txt")
         self.processed_members: Set[str] = set()
         
@@ -75,7 +76,8 @@ class QQGroupCrawlerPlugin(Star):
 
     def parse_nickname_format(self, nickname: str) -> Dict[str, str]:
         try:
-            pattern = r'^(\d+)组-([^-]+)\(([^)]+)\)-(\d+)$'
+            # 匹配格式: "1组-爱豆(迷你名字)-10001(迷你号)"
+            pattern = r'^(\d+)组-([^-]+)\(([^)]+)\)-(\d+)\(([^)]+)\)$'
             match = re.match(pattern, nickname)
             
             if match:
@@ -97,7 +99,8 @@ class QQGroupCrawlerPlugin(Star):
 
     async def save_member_info(self, qq_id: str, info: Dict[str, str]):
         try:
-            save_line = f"{qq_id}：{info['mini_id']}：{info['group']}组：{info['mini_name']}\n"
+            # 保存格式: 迷你号:几组:迷你号:qq号
+            save_line = f"{info['mini_id']}:{info['group']}:{info['mini_id']}:{qq_id}\n"
             
             with open(self.save_file, 'a', encoding='utf-8') as f:
                 f.write(save_line)
