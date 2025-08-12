@@ -1,10 +1,10 @@
-name: qq_group_crawler
-author: Mcpol
-description: QQ群成员信息自动爬取插件，支持解析特定格式的群名称并保存到本地文件
-version: 1.0.0
-repository: https://github.com/your-repo
-tags:
-  - qq
-  - crawler
-  - group
-  - member 
+name: "QQBot"
+author: "简单工作室"
+description: "QQ频道机器人功能移植版，包含天气查询、每日一言、签到系统等功能"
+version: "1.0.0"
+repository: "https://github.com/your-repo"
+tags: ["qq", "weather", "daily-quote", "sign-in", "bot"]
+license: "MIT"
+homepage: "https://github.com/your-repo"
+issues: "https://github.com/your-repo/issues"
+documentation: "https://github.com/your-repo/README.md" 
